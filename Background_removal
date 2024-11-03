@@ -1,0 +1,23 @@
+from rembg import remove
+from PIL import Image
+import os
+
+# Specify the input and output paths
+input_path = 'C:/Users/zohaib khan/OneDrive/Desktop/POC/hamza.jpg'
+output_path = 'C:/Users/zohaib khan/OneDrive/Desktop/POC/hamza_no_bg.png'
+
+# Check if the input file exists
+if os.path.exists(input_path):
+    # Open the image
+    inp = Image.open(input_path)
+    
+    # Remove the background
+    output = remove(inp)
+    
+    # Save the output image with background removed
+    output.save(output_path)
+    
+    # Display the result
+    output.show()
+else:
+    print(f"File not found: {input_path}")
